@@ -1,0 +1,40 @@
+<h2>Bikes</h2>
+
+<form>
+  <md-input-container style="width:30%">
+    <input mdInput [(ngModel)]="newBike.model" placeholder="Model" name="model">
+  </md-input-container>
+  <md-input-container style="width:30%">
+    <input mdInput [(ngModel)]="newBike.manufacturer" placeholder="Manufacturer" name="manufacturer">
+  </md-input-container>
+  <button md-raised-button (click)="createBike(newBike)">Create Bike</button>
+
+ 
+  <md-list>
+   <thead class="thead-inverse">
+    <tr>
+      <th>ID</th>
+      <th>Bike Model</th>
+      <th>Manufacturer</th>
+	  <th>Update/Delete</th>
+    </tr>
+  </thead>
+    <tr *ngFor="let bike of bikes">
+		<td><span>
+          {{bike.id}}&nbsp;&nbsp;
+      </span></td>
+		<td><span>
+          {{bike.model}}&nbsp;&nbsp;
+      </span></td>
+		<td><span>
+          {{bike.manufacturer}}&nbsp;&nbsp;
+      </span></td>
+	   <td><span><button md-raised-button (click)="showInfo(bike)">Edit</button>&nbsp;&nbsp;</span></td>
+	   <td><span>
+        <button md-raised-button (click)="deleteBike(bike); $event.stopPropagation()">Delete</button>&nbsp;&nbsp;
+      </span></td>
+	  
+      
+    </tr>
+  </md-list>
+</form>

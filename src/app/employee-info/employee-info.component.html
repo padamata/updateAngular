@@ -1,0 +1,22 @@
+<div *ngIf="employee">
+  <md-card style="width: 30%">
+    <md-card-header>
+      <md-card-title>{{employee.model}} details!</md-card-title>
+    </md-card-header>
+    <md-card-content>
+      <div><label>id: </label>{{employee.id}}</div>
+      <div>
+        <label>Name: </label>
+        <input [(ngModel)]="employee.model" placeholder="model" />
+      </div>
+      <div>
+        <label>Departement: </label>
+        <input [(ngModel)]="employee.manufacturer" placeholder="manufacturer" />
+      </div>
+    </md-card-content>
+    <md-card-actions>
+      <button md-button (click)="goBack()"> Back </button>
+      <button md-button (click)="updateBike()"> Update </button>
+    </md-card-actions>
+  </md-card>
+  <div>

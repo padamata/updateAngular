@@ -1,0 +1,30 @@
+<h2>Employees</h2>
+
+<form>
+  <md-input-container style="width:30%">
+    <input mdInput [(ngModel)]="newEmployee.model" placeholder="Name" name="model">
+  </md-input-container>
+  <md-input-container style="width:30%">
+    <input mdInput [(ngModel)]="newEmployee.manufacturer" placeholder="Departemet" name="manufacturer">
+  </md-input-container>
+  <button md-raised-button (click)="createEmployee(newEmployee)">Create Employee</button>
+
+  <md-list>
+  <thead class="thead-inverse">
+    <tr>
+      <th>Id&nbsp;&nbsp;</th>
+      <th>Employee Name</th>
+      <th>Departemet</th>
+	  <th>Update</th>
+	  <th>Delete</th>
+    </tr>
+  </thead>
+    <tr *ngFor="let employee of employees">
+	  <td align="center">{{employee.id}}</td>
+      <td align="center">{{employee.model}}</td>
+	  <td align="center">{{employee.manufacturer}}&nbsp;&nbsp;</td>
+	  <td align="center"><button md-raised-button (click)="showInfo(employee)">Edit</button>&nbsp;</td>
+      <td align="center"><button md-raised-button (click)="deleteEmployee(employee); $event.stopPropagation()">Delete</button>&nbsp;</td>
+    </tr>
+  </md-list>
+</form>
